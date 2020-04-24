@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import logo from "./Images/NumuLogo.png";
 import "./App.css";
 import Home from "./Pages/Home";
+import BarCharts from './Charts/barCharts';
 import UserDetail from "./Pages/UserDetail";
 import Button from "@material-ui/core/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -26,7 +27,10 @@ function App() {
       <div className="table-Area">
         <Router>
           <Switch>
-            <Route exact path="/">
+          <Route exact path="/">
+            <BarCharts />
+            </Route>
+            <Route exact path="/home">
               <Home />
             </Route>
             <Route exact path="/userDetail/:id" component={UserDetail} >
@@ -36,11 +40,14 @@ function App() {
         </Router>
               <br />
               <div className={classes.root}>
-              <Button variant="contained" href="/">
+              <Button variant="contained" href="/home">
                 Home
               </Button>
               <Button variant="contained" color="primary" href="/userDetail/404">
                 User Detail
+              </Button>
+              <Button variant="contained" href="/">
+                Dashboard
               </Button>
               </div>
       </div>
