@@ -7,7 +7,6 @@
 .App-logo {
   height: 25vmin;
   pointer-events: none;
-
 }
 .MuiGrid-spacing-xs-2 > .MuiGrid-item {
   padding: 26px !important;
@@ -22,49 +21,47 @@
 .dropdown {
   width: 33.3%;
   margin-top: 5%;
-  padding: 2%
+  padding: 2%;
 }
 
-.table-Area
-{
+.table-Area {
   width: 81.5%;
   margin-left: 13%;
-  
 }
-@media (min-width: 300px){
-.ag-theme-balham-dark {
-  font-size: 19px !important;
-}
+@media (min-width: 300px) {
+  .ag-theme-balham-dark {
+    font-size: 19px !important;
+  }
 }
 
-@media (min-width: 700px){
+@media (min-width: 700px) {
   .ag-theme-balham-dark {
     font-size: 14px !important;
   }
-  }
-@media (max-width: 700px){
-.MUIDataTableBodyCell-cellStackedSmall-180 {
-     width: 19% !important;
 }
-.table-Area {
-  width: 93%;
-  margin-left: 4%;
-}
-
-.MUIDataTableBodyCell-stackedCommon-179 {
-  width: calc(50% - 80px);
-  height: 24px;
-  display: inline-block;
-  font-size: 13px !important;
-  padding: 12px  !important;
-  white-space: normal  !important;
-  word-break: break-all;
-}
-}
-
-@media (max-width: 959.95px){
+@media (max-width: 700px) {
   .MUIDataTableBodyCell-cellStackedSmall-180 {
-       width:30% !important;
+    width: 19% !important;
+  }
+  .table-Area {
+    width: 93%;
+    margin-left: 4%;
+  }
+
+  .MUIDataTableBodyCell-stackedCommon-179 {
+    width: calc(50% - 80px);
+    height: 24px;
+    display: inline-block;
+    font-size: 13px !important;
+    padding: 12px !important;
+    white-space: normal !important;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 959.95px) {
+  .MUIDataTableBodyCell-cellStackedSmall-180 {
+    width: 30% !important;
   }
   .table-Area {
     width: 93%;
@@ -78,11 +75,11 @@
     height: 24px;
     display: inline-block;
     font-size: 13px !important;
-    padding: 12px  !important;
-    white-space: normal  !important;
+    padding: 12px !important;
+    white-space: normal !important;
     word-break: break-all;
   }
-  }
+}
 
 .MuiToolbar-root {
   display: flex;

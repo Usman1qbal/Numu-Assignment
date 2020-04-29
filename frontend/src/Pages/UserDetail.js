@@ -4,13 +4,20 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
 import io from "socket.io-client";
 import { _ } from "ag-grid-community";
-import Button from '@material-ui/core/Button';
-// import 'ag-grid-enterprise';
-
+import Button from "@material-ui/core/Button";
+import "ag-grid-enterprise";
+function mySum(values) {
+  var result = 0;
+  values.forEach(function (value) {
+    if (typeof value === "number") {
+      result += value;
+    }
+  });
+  return result;
+}
 class userDetail extends Component {
   constructor(props) {
     super(props);
-    // console.log(props);debugger
     this.state = {
       columnDefs: [
         {
@@ -20,97 +27,88 @@ class userDetail extends Component {
               headerName: "id",
               field: "id",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              aggFunc: "sum",
             },
             {
               headerName: "username",
               field: "username",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
             },
             {
               headerName: "email",
               field: "email",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "age",
               field: "age",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "country",
               field: "country",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "city",
               field: "city",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "active",
               field: "active",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "created_at",
               field: "created_at",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "updated_at",
               field: "updated_at",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
           ],
@@ -122,43 +120,39 @@ class userDetail extends Component {
               headerName: "posts",
               field: "posts",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "friends",
               field: "friends",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
             },
             {
               headerName: "points",
               field: "points",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "refresh",
               field: "refresh",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
             },
           ],
         },
@@ -169,44 +163,40 @@ class userDetail extends Component {
               headerName: "os",
               field: "os",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "appVersion",
               field: "appVersion",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "netSpeed",
               field: "netSpeed",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
               columnGroupShow: "open",
             },
             {
               headerName: "battery",
               field: "battery",
               sortable: true,
-              filter: true, 
+              filter: true,
               pivot: true,
-              aggFunc: 'sum',
               enableValue: true,
-              allowedAggFuncs: ['sum', 'min', 'max'],
+              allowedAggFuncs: ["sum", "min", "max"],
             },
           ],
         },
@@ -235,74 +225,84 @@ class userDetail extends Component {
     };
   }
   async componentDidMount() {
-    console.log("==data===>",this.props.match.params.id,typeof(this.props.match.params.id),typeof('404'),this.props.match.params.id === '404');
-    let query="";
-    if(this.props.match.params.id === "404")
-    {
+    let query = "";
+    if (this.props.url) {
       query = `http://localhost:3001/get_employee_detail`;
-    }
-    else{
+    } else if (this.props.match.params.id === "404") {
+      query = `http://localhost:3001/get_employee_detail`;
+    } else if (this.props.match.params.id !== "404") {
       query = `http://localhost:3001/get_employee_detail/${this.props.match.params.id}`;
     }
-    
-    console.log("==data===>",this.props.match.params.id,query);
-    const res  = await fetch(query).then((res) => {
-          return res.json();
-        })
-        .then((users) =>{
-          console.log("here comes data ==> ",users);
-          this.setState({
-            rowData:users
-          })
-        });
 
-     
+    const res = await fetch(query)
+      .then((res) => {
+        return res.json();
+      })
+      .then((users) => {
+        console.log("here comes data ==> ", users);
+        this.setState({
+          rowData: users,
+        });
+      });
   }
 
   render() {
-    var columnDefs = [{
-      headerName: "Country",
-      field: "country",
-      rowGroup: true,
-      hide: true
-    },
-    //{headerName: "Type", field: "type", rowGroup: true, hide: true},
     {
-      headerName: "Book Value",
-      field: "bookValue",
-      aggFunc: 'sum'
-    }, {
-      headerName: "Interest",
-      field: "interest",
-      //valueGetter: weightedAverageGetter,
-      aggFunc: ['sum','weightedAverage']
+      var gridOptions = {
+        columnDefs: this.state.columnDefs,
+        defaultColDef: {
+          editable: true,
+          enableRowGroup: true,
+          enablePivot: true,
+          sortable: true,
+          resizable: true,
+          filter: true,
+          flex: 1,
+          minWidth: 100,
+        },
+        autoGroupColumnDef: {
+          headerName: "Athlete",
+          field: "athlete",
+          minWidth: 250,
+          cellRenderer: "agGroupCellRenderer",
+          cellRendererParams: {
+            footerValueGetter: '"Total (" + x + ")"',
+          },
+        },
+        groupIncludeFooter: true,
+        sideBar: true,
+      };
     }
-  ]
-  
-  var gridOptions = {
-    columnDefs: columnDefs,
-    animateRows: true,
-    enableRangeSelection: true,
-    enableSorting: true,
-    enableFilter: true,
-    suppressAggFuncInHeader: true
-  }
     return (
       <div
         className="ag-theme-balham-dark"
         style={{
-          height: "370px",
+          height: "521px",
           width: "92%",
         }}
       >
         <AgGridReact
-          rowData= {this.state.rowData}
+          columnDefs={this.state.columnDefs}
+          rowData={this.state.rowData}
+          masterDetail={true}
           pagination={true}
-          gridOptions={gridOptions}
-          enableCharts= {true}
-          enableRangeSelection= {true}
-          paginationPageSize={9}
+          gridOptions={this.gridOptions}
+          enableCharts={true}
+          enableRangeSelection={true}
+          paginationPageSize={13}
           suppressSizeToFit={true}
+          suppressRowClickSelection={true}
+          groupSelectsChildren={true}
+          debug={true}
+          rowSelection="multiple"
+          rowGroupPanelShow="always"
+          pivotPanelShow="always"
+          enableRangeSelection={true}
+          paginationNumberFormatter={function (params) {
+            return "" + params.value.toLocaleString() + "";
+          }}
+          groupIncludeFooter={true}
+          sideBar={true}
         ></AgGridReact>
       </div>
     );

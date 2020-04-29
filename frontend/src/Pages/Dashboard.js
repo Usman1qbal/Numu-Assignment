@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Dropdown from "./DropDown/Dropdown";
+import UserDetail from "./UserDetail";
 
 import BarCharts from "../Charts/triangleBarCharts";
 import SimpleBarChart from "../Charts/simpleBarChart";
 import PieChart from "../Charts/PieChartWithLabel";
 import LineChartDiagram from "../Charts/LineChartDiagram";
-import AreaResponsiveChart from '../Charts/areaResponsiveChart';
+import AreaResponsiveChart from "../Charts/areaResponsiveChart";
 
 const data = [
   {
@@ -414,6 +415,7 @@ export default function Dashboard() {
 
       <Grid item xs={12} justify="center">
         <h1>Transformation</h1>
+        <UserDetail url={true} />
       </Grid>
     </Grid>
   );
