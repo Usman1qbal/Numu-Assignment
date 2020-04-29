@@ -260,29 +260,33 @@ class userDetail extends Component {
   }
 
   render() {
+    var columnDefs = [{
+      headerName: "Country",
+      field: "country",
+      rowGroup: true,
+      hide: true
+    },
+    //{headerName: "Type", field: "type", rowGroup: true, hide: true},
     {
-      var gridOptions = {
-        columnDefs: this.state.columnDefs,
-        defaultColDef: {
-          flex: 1,
-          minWidth: 150,
-          filter: true,
-          sortable: true,
-          resizable: true,
-        },
-        autoGroupColumnDef: {
-          headerName: 'Athlete',
-          field: 'athlete',
-          minWidth: 250,
-          cellRenderer: 'agGroupCellRenderer',
-          cellRendererParams: {
-            footerValueGetter: '"Total (" + x + ")"',
-          },
-        },
-        groupIncludeFooter: true,
-        sideBar: true,
-      };
+      headerName: "Book Value",
+      field: "bookValue",
+      aggFunc: 'sum'
+    }, {
+      headerName: "Interest",
+      field: "interest",
+      //valueGetter: weightedAverageGetter,
+      aggFunc: ['sum','weightedAverage']
     }
+  ]
+  
+  var gridOptions = {
+    columnDefs: columnDefs,
+    animateRows: true,
+    enableRangeSelection: true,
+    enableSorting: true,
+    enableFilter: true,
+    suppressAggFuncInHeader: true
+  }
     return (
       <div
         className="ag-theme-balham-dark"
@@ -292,11 +296,9 @@ class userDetail extends Component {
         }}
       >
         <AgGridReact
-          columnDefs={this.state.columnDefs}
-          rowData={this.state.rowData}
-          masterDetail={true}
+          rowData= {this.state.rowData}
           pagination={true}
-          gridOptions={this.gridOptions}
+          gridOptions={gridOptions}
           enableCharts= {true}
           enableRangeSelection= {true}
           paginationPageSize={9}

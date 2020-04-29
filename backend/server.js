@@ -61,51 +61,51 @@ io.on("connect", (socket) => {
   }
 });
 
-// cron.schedule("*/5 * * * * *", function () {
-//   axios
-//     .get("https://hidden-caverns-44833.herokuapp.com/")
-//     .then(function (response) {
-//       // console.log(response.data[1]);
-//       response.data.map((single_rec) => {
-//         con.query(
-//           `SELECT id FROM tbl_user where id=${single_rec.id}`,
-//           function (err, result) {
-//             if (err) throw err;
-//             if (result.length > 0) {
-//               console.log("record already added");
-//             } else {
-//               con.query(
-//                 `INSERT INTO tbl_user (id, username, email, age, country, city, active)
-//                         VALUES (${single_rec.id}, '${single_rec.username}', '${single_rec.email}', ${single_rec.age}, '${single_rec.country}', '${single_rec.city}', '${single_rec.active}')`,
-//                 function (err, result) {
-//                   if (err) throw err;
-//                   if (result) {
-//                     console.log("record inserted", result);
-//                   }
-//                 }
-//               );
-//             }
+cron.schedule("*/5 * * * * *", function () {
+  axios
+    .get("https://hidden-caverns-44833.herokuapp.com/")
+    .then(function (response) {
+      // console.log(response.data[1]);
+      response.data.map((single_rec) => {
+        con.query(
+          `SELECT id FROM tbl_user where id=${single_rec.id}`,
+          function (err, result) {
+            if (err) throw err;
+            if (result.length > 0) {
+              console.log("record already added");
+            } else {
+              con.query(
+                `INSERT INTO tbl_user (id, username, email, age, country, city, active)
+                        VALUES (${single_rec.id}, '${single_rec.username}', '${single_rec.email}', ${single_rec.age}, '${single_rec.country}', '${single_rec.city}', '${single_rec.active}')`,
+                function (err, result) {
+                  if (err) throw err;
+                  if (result) {
+                    console.log("record inserted", result);
+                  }
+                }
+              );
+            }
 
-//             con.query(
-//               `INSERT INTO tbl_details (user_id, device, score)
-//                     VALUES (${single_rec.id}, '${JSON.stringify(
-//                 single_rec.device
-//               )}', '${JSON.stringify(single_rec.score)}')`,
-//               function (err, result) {
-//                 if (err) throw err;
-//                 if (result) {
-//                   console.log("details  inserted", result);
-//                 }
-//               }
-//             );
-//           }
-//         );
-//       });
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//     });
-// });
+            con.query(
+              `INSERT INTO tbl_details (user_id, device, score)
+                    VALUES (${single_rec.id}, '${JSON.stringify(
+                single_rec.device
+              )}', '${JSON.stringify(single_rec.score)}')`,
+              function (err, result) {
+                if (err) throw err;
+                if (result) {
+                  console.log("details  inserted");
+                }
+              }
+            );
+          }
+        );
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+});
 
 app.get("/", (req, res) => {
   res.send("connected");

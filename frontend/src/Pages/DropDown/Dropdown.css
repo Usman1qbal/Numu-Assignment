@@ -1,0 +1,61 @@
+.App {
+    text-align: center;
+    
+  }
+  .MuiInputBase-root.MuiInput-root.MuiInput-underline {
+      padding: 10px 30px 10px 30px;
+      border: 1px solid lightgray;
+      border-radius: 6px;
+      
+  }
+  .MuiSvgIcon-root.MuiSelect-icon{
+    top: calc(28% - 12px);
+    font-size: 44px;
+  }
+  .MuiInputBase-root.MuiInput-root.MuiInput-underline::before {
+    border-bottom: none;
+  }
+  h3 {
+    margin-top: 4%;
+  }
+  
+  .dropdownDiv {
+    width: 33.3%;
+    margin-top: 5%;
+    padding: 2%
+  }
+  .img {
+    width: 33.3%;
+    margin: 1%;
+    padding: 2%;
+    border: 3px solid;
+  }
+  .images {
+  display: flex;
+  }
+  .dropdown {
+    display: flex;
+  }
+  .ag-grid {
+    text-align: -webkit-center;
+    margin-top: 5%;
+  }
+  body {
+    background: darkslategray;
+  }
+  @media only screen and (max-width: 480px) {
+    .dropdown,.images {
+      display: grid;
+      position: relative;
+      left: 30%;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .images {
+      margin-left: 4%;
+    }
+  }
+  
+  
+  
+  

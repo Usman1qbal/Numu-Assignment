@@ -2,11 +2,13 @@ import React,{useState} from "react";
 import logo from "./Images/NumuLogo.png";
 import "./App.css";
 import Home from "./Pages/Home";
-import BarCharts from './Charts/barCharts';
 import UserDetail from "./Pages/UserDetail";
+import Dashboard from "./Pages/Dashboard";
 import Button from "@material-ui/core/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -14,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 
 function App() {
   const classes = useStyles();
@@ -28,7 +31,8 @@ function App() {
         <Router>
           <Switch>
           <Route exact path="/">
-            <BarCharts />
+            <Dashboard />
+            {/* <Dash /> */}
             </Route>
             <Route exact path="/home">
               <Home />

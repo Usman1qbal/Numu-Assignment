@@ -9,8 +9,21 @@
   pointer-events: none;
 
 }
+.MuiGrid-spacing-xs-2 > .MuiGrid-item {
+  padding: 26px !important;
+}
 
-
+.MuiInputBase-root.MuiInput-root.MuiInput-underline {
+  padding: 12px 30px 10px 30px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  margin-left: 28px;
+}
+.dropdown {
+  width: 33.3%;
+  margin-top: 5%;
+  padding: 2%
+}
 
 .table-Area
 {
